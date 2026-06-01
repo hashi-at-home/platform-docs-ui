@@ -15,11 +15,14 @@
     "last 2 versions"
   ],
   "devDependencies": {
+    "npm-check-updates": "^16.0.0",
     "@asciidoctor/core": ">=3.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
-    "@fontsource/roboto": ">=5.2",
-    "@fontsource/roboto-mono": ">=5.2",
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/monaspace-argon": ">=5.0",
+    "@fontsource/monaspace-krypton": ">=5.0",
+    "@fontsource/monaspace-radon": ">=5.0",
     "@vscode/gulp-vinyl-zip": ">=2.6",
     "autoprefixer": "^10.5.0",
     "browser-pack-flat": "^3.5.0",

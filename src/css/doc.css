@@ -1078,6 +1078,8 @@
 }
 
 #footnotes .footnote {
+  font-family: var(--handwriting-font-family);
+  font-weight: var(--handwriting-font-weight);
   margin: 0.5em 0 0 1em;
 }
 

@@ -128,8 +128,9 @@ export default (src, dest) => async () => {
     // Copy fonts from node_modules
     new Promise((resolve, reject) => {
       const fontGlobs = [
-        'node_modules/@fontsource/roboto/files/**/*.woff*',
-        'node_modules/@fontsource/roboto-mono/files/**/*.woff*',
+        'node_modules/@fontsource/monaspace-argon/files/**/*.woff*',
+        'node_modules/@fontsource/monaspace-krypton/files/**/*.woff*',
+        'node_modules/@fontsource/monaspace-radon/files/**/*.woff*',
       ]
       const stream = vfs
         .src(fontGlobs)

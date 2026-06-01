@@ -11,6 +11,8 @@ body {
 .navbar {
   background: var(--navbar-background);
   color: var(--navbar-font-color);
+  font-family: "Monaspace Argon";
+  font-style: sans-serif;
   font-size: calc(16 / var(--rem-base) * 1rem);
   height: var(--navbar-height);
   position: fixed;
