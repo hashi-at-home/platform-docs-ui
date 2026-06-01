@@ -1,4 +1,4 @@
 [tools]
-node = "26.2"
+node = "26.3"
 "npm:gulp" = "5"
 prek = "0.4.3"
