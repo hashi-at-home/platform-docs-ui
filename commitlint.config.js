@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
-module.exports = {
+export default {
   extends: ['@commitlint/config-conventional'],
 }

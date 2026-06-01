@@ -1,18 +1,22 @@
-'use strict'
-
-const connect = require('gulp-connect')
-const os = require('os')
+import connect from 'gulp-connect'
+import os from 'os'
 
 const ANY_HOST = '0.0.0.0'
 const URL_RX = /(https?):\/\/(?:[^/: ]+)(:\d+)?/
 
-module.exports = (root, opts = {}, watch = undefined) => (done) => {
+/**
+ * Start a development server
+ */
+export default (root, opts = {}, watch = undefined) => (done) => {
   connect.server({ ...opts, middleware: opts.host === ANY_HOST ? decorateLog : undefined, root }, function () {
     this.server.on('close', done)
     if (watch) watch()
   })
 }
 
+/**
+ * Decorate server logs with local IP address
+ */
 function decorateLog(_, app) {
   const _log = app.log
   app.log = (msg) => {
@@ -26,10 +30,15 @@ function decorateLog(_, app) {
   return []
 }
 
+/**
+ * Get local IP address
+ */
 function getLocalIp() {
   for (const records of Object.values(os.networkInterfaces())) {
     for (const record of records) {
-      if (!record.internal && record.family === 'IPv4') return record.address
+      if (!record.internal && record.family === 'IPv4') {
+        return record.address
+      }
     }
   }
   return 'localhost'

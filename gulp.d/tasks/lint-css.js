@@ -1,10 +1,16 @@
-'use strict'
+import gulpStylelint from 'gulp-stylelint'
+import vfs from 'vinyl-fs'
 
-const stylelint = require('gulp-stylelint')
-const vfs = require('vinyl-fs')
-
-module.exports = (files) => (done) =>
+/**
+ * Lint CSS files using stylelint
+ */
+export default (files) => (done) =>
   vfs
     .src(files)
-    .pipe(stylelint({ reporters: [{ formatter: 'string', console: true }], failAfterError: true }))
+    .pipe(
+      gulpStylelint({
+        reporters: [{ formatter: 'string', console: true }],
+        failAfterError: true,
+      })
+    )
     .on('error', done)

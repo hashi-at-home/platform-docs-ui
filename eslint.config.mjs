@@ -7,7 +7,7 @@ import js from "@eslint/js";
 
 export default defineConfig([
   {
-    ignores: ["node_modules/**", "dist/**", "build/**"],
+    ignores: ["node_modules/**", "dist/**", "build/**", "src/js/vendor/**", "src/js/site.js"],
   },
   {
     languageOptions: {

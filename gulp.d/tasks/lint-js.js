@@ -1,9 +1,10 @@
-'use strict'
+import eslint from 'gulp-eslint'
+import vfs from 'vinyl-fs'
 
-const eslint = require('gulp-eslint')
-const vfs = require('vinyl-fs')
-
-module.exports = (files) => (done) =>
+/**
+ * Lint JavaScript files using eslint
+ */
+export default (files) => (done) =>
   vfs
     .src(files)
     .pipe(eslint())

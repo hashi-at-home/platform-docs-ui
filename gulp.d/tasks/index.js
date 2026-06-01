@@ -1,5 +1,7 @@
-'use strict'
-
-const camelCase = (name) => name.replace(/[-]./g, (m) => m.slice(1).toUpperCase())
-
-module.exports = require('require-directory')(module, __dirname, { recurse: false, rename: camelCase })
+export { default as clean } from './clean.js'
+export { default as lintCss } from './lint-css.js'
+export { default as lintJs } from './lint-js.js'
+export { default as build } from './build.js'
+export { default as buildPreviewPages } from './build-preview-pages.js'
+export { default as pack } from './pack.js'
+export { default as serve } from './serve.js'

@@ -6,7 +6,7 @@ repos:
     hooks:
       - id: eslint
         files: \.[jt]sx?$ # *.js, *.jsx, *.ts and *.tsx
-        exclude: (vendor|site\.js)
+        exclude: (vendor|site\.js|commitlint.config.js)
         types: [file]
         additional_dependencies:
           - eslint@latest

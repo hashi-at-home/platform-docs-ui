@@ -1,6 +1,3 @@
-// ESLint 6/10 configuration for gulp-eslint@6 and pre-commit hooks.
-// This uses the legacy config format (.eslintrc.json).
-// See eslint.config.mjs for the modern flat config format used by newer tools.
 {
   "env": {
     "es6": true
@@ -62,6 +59,15 @@
       "env": {
         "browser": true,
         "node": false
+      }
+    },
+    {
+      "files": [
+        "src/js/vendor/**/*.js"
+      ],
+      "env": {
+        "node": true,
+        "browser": false
       }
     }
   ]

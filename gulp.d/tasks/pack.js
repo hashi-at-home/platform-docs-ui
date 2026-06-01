@@ -1,17 +1,20 @@
-'use strict'
+import console from 'console'
+import path from 'path'
+import vfs from 'vinyl-fs'
+import zip from '@vscode/gulp-vinyl-zip'
 
-const ospath = require('path')
-const vfs = require('vinyl-fs')
-const zip = (() => {
-  try {
-    return require('@vscode/gulp-vinyl-zip')
-  } catch {
-    return require('gulp-vinyl-zip')
-  }
-})()
-
-module.exports = (src, dest, bundleName, onFinish) => () =>
+/**
+ * Create a distributable bundle (ZIP file)
+ * Packs all UI assets from src into a zip file in dest
+ */
+export default (src, dest, bundleName) => () =>
   vfs
     .src('**/*', { base: src, cwd: src, dot: true })
-    .pipe(zip.dest(ospath.join(dest, `${bundleName}-bundle.zip`)))
-    .on('finish', () => onFinish && onFinish(ospath.resolve(dest, `${bundleName}-bundle.zip`)))
+    .pipe(zip.dest(path.join(dest, `${bundleName}-bundle.zip`)))
+    .on('finish', () => {
+      const bundlePath = path.resolve(dest, `${bundleName}-bundle.zip`)
+      if (!process.env.CI) {
+        console.log(`UI bundle created: ${bundlePath}`)
+        console.log(`Antora option: --ui-bundle-url=${bundlePath}`)
+      }
+    })
