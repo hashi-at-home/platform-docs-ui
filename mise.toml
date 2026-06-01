@@ -1,0 +1,4 @@
+[tools]
+node = "26.2"
+"npm:gulp" = "5"
+prek = "0.4.3"

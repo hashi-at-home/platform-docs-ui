@@ -1,0 +1,68 @@
+// ESLint 6/10 configuration for gulp-eslint@6 and pre-commit hooks.
+// This uses the legacy config format (.eslintrc.json).
+// See eslint.config.mjs for the modern flat config format used by newer tools.
+{
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "rules": {
+    "arrow-parens": [
+      "error",
+      "always"
+    ],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline"
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "property": "substr",
+        "message": "Use String#slice instead."
+      }
+    ],
+    "max-len": [
+      1,
+      120,
+      2
+    ],
+    "spaced-comment": "off",
+    "radix": [
+      "error",
+      "always"
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "commitlint.config.js",
+        "gulpfile.js",
+        "gulp.d/**/*.js",
+        "src/helpers/*.js"
+      ],
+      "env": {
+        "node": true,
+        "browser": false
+      }
+    },
+    {
+      "files": [
+        "src/js/**/*.js",
+        "preview-src/**/*.js"
+      ],
+      "env": {
+        "browser": true,
+        "node": false
+      }
+    }
+  ]
+}
