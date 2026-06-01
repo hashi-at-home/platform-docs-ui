@@ -5,13 +5,20 @@ const ANY_HOST = '0.0.0.0'
 const URL_RX = /(https?):\/\/(?:[^/: ]+)(:\d+)?/
 
 /**
- * Start a development server
+ * Middleware to set proper MIME types
  */
-export default (root, opts = {}, watch = undefined) => (done) => {
-  connect.server({ ...opts, middleware: opts.host === ANY_HOST ? decorateLog : undefined, root }, function () {
-    this.server.on('close', done)
-    if (watch) watch()
-  })
+function mimeTypeMiddleware(req, res, next) {
+  // Set proper MIME type for JavaScript files
+  if (req.url.endsWith('.js')) {
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8')
+  }
+  // Ensure fonts are served with correct MIME types
+  else if (req.url.endsWith('.woff2')) {
+    res.setHeader('Content-Type', 'font/woff2')
+  } else if (req.url.endsWith('.woff')) {
+    res.setHeader('Content-Type', 'font/woff')
+  }
+  next()
 }
 
 /**
@@ -42,4 +49,27 @@ function getLocalIp() {
     }
   }
   return 'localhost'
+}
+
+/**
+ * Start a development server
+ */
+export default (root, opts = {}, watch = undefined) => (done) => {
+  // gulp-connect expects middleware to be a function that returns an array of middleware
+  const middlewareFn = (connect, app) => {
+    // Optionally decorate logs if host is ANY_HOST
+    if (opts.host === ANY_HOST) {
+      decorateLog(undefined, app)
+    }
+    // Return array of middleware functions
+    return [mimeTypeMiddleware]
+  }
+
+  connect.server(
+    { ...opts, middleware: middlewareFn, root },
+    function () {
+      this.server.on('close', done)
+      if (watch) watch()
+    }
+  )
 }

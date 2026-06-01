@@ -3,6 +3,7 @@ import gulpConcat from 'gulp-concat'
 import { Transform } from 'stream'
 import path from 'path'
 import fs from 'fs-extra'
+import browserify from 'browserify'
 
 const map = (transform) => new Transform({ objectMode: true, transform })
 
@@ -31,6 +32,24 @@ export default (src, dest) => async () => {
       vfs
         .src('css/**/*.css', opts)
         .pipe(gulpConcat('css/site.css'))
+        .pipe(
+          map(async (file, enc, next) => {
+            try {
+              // Process CSS to rewrite font URLs from webpack aliases to relative paths
+              const css = file.contents.toString('utf-8')
+              const processed = css
+                // Rewrite @fontsource webpack aliases to relative paths
+                .replace(
+                  /url\(~@fontsource\/[^/]+\/files\/([^)]+)\)/g,
+                  'url(../font/$1)'
+                )
+              file.contents = Buffer.from(processed, 'utf-8')
+              next(null, file)
+            } catch (err) {
+              next(err)
+            }
+          })
+        )
         .pipe(vfs.dest(dest))
         .on('finish', resolve)
         .on('error', reject)
@@ -72,19 +91,48 @@ export default (src, dest) => async () => {
         .on('error', reject)
     }),
 
-    // Copy vendor JS (e.g., highlight.js)
+    // Bundle highlight.js with browserify
     new Promise((resolve, reject) => {
-      vfs
-        .src('js/vendor/**/*', opts)
-        .pipe(vfs.dest(dest))
-        .on('finish', resolve)
-        .on('error', reject)
+      ; (async () => {
+        try {
+          const vendorSrc = path.join(src, 'js/vendor')
+          const vendorDest = path.join(dest, 'js/vendor')
+
+          await fs.ensureDir(vendorDest)
+
+          // Bundle highlight-entry.js with browserify for browser use
+          const bundler = browserify(
+            path.join(vendorSrc, 'highlight-entry.js'),
+            { standalone: 'hljs', basedir: process.cwd() }
+          )
+
+          const outPath = path.join(vendorDest, 'highlight.js')
+          const writeStream = fs.createWriteStream(outPath)
+
+          await new Promise((resolveStream, rejectStream) => {
+            bundler
+              .bundle()
+              .on('error', rejectStream)
+              .pipe(writeStream)
+              .on('finish', resolveStream)
+              .on('error', rejectStream)
+          })
+
+          resolve()
+        } catch (err) {
+          reject(err)
+        }
+      })()
     }),
 
     // Copy fonts from node_modules
     new Promise((resolve, reject) => {
+      const fontGlobs = [
+        'node_modules/@fontsource/roboto/files/**/*.woff*',
+        'node_modules/@fontsource/roboto-mono/files/**/*.woff*',
+      ]
       const stream = vfs
-        .src(['node_modules/@fontsource/roboto/files/**/*.woff*', 'node_modules/@fontsource/roboto-mono/files/**/*.woff*'])
+        .src(fontGlobs)
         .pipe(
           map(async (file, enc, next) => {
             try {

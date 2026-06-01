@@ -1,6 +1,7 @@
 = Hardware and Software Requirements
 Author Name
 :idprefix:
+// :source-highlighter: highlight.js
 :idseparator: -
 :!example-caption:
 :!table-caption:
@@ -36,6 +37,18 @@ E = mc^2^.
 *Alphabet* *алфавит* _алфавит_ *_алфавит_*.
 Eum an doctus <<liber-recusabo,maiestatis efficiantur>>.
 Eu mea inani iriure.footnote:[Quisque porta facilisis tortor, vitae bibendum velit fringilla vitae! Lorem ipsum dolor sit amet, consectetur adipiscing elit.]
+
+[,javascript]
+----
+
+import connect from 'gulp-connect'
+import os from 'os'
+
+const ANY_HOST = '0.0.0.0'
+const URL_RX = /(https?):\/\/(?:[^/: ]+)(:\d+)?/
+
+----
+
 
 [,json]
 ----
