@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hashi-at-home/platform-docs-ui.git"
+    "url": "git+https://github.com/hashi-at-home/platform-docs-ui.git"
   },
   "type": "module",
   "engines": {
@@ -111,5 +111,6 @@
         }
       ]
     ]
-  }
+  },
+  "version": "1.0.0"
 }
