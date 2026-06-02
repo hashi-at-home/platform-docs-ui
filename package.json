@@ -24,6 +24,7 @@
     "@fontsource/monaspace-krypton": ">=5.0",
     "@fontsource/monaspace-radon": ">=5.0",
     "@vscode/gulp-vinyl-zip": ">=2.6",
+    "archiver": "^6.0.0",
     "autoprefixer": "^10.5.0",
     "browser-pack-flat": "^3.5.0",
     "browserify": "^17.0.1",
