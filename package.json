@@ -106,17 +106,10 @@
             {
               "path": "build/ui-bundle.zip",
               "label": "UI Bundle"
-            },
-            {
-              "path": "CHANGELOG.md",
-              "label": "Changelog"
             }
           ]
         }
       ]
     ]
-  },
-  "dependencies": {
-    "@semantic-release/exec": "^7.1.0"
   }
 }
