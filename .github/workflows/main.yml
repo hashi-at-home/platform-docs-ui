@@ -1,0 +1,33 @@
+---
+permissions:
+  packages: write
+  attestations: write
+  id-token: write
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Configure tools
+        uses: jdx/mise-action@v4
+        with:
+          version: v2026.05.17
+          install: true
+          cache: true
+          experimental: true
+          reshim: true
+      - name: Install and activate tools
+        run: |
+          mise trust
+          mise install
+          which node
