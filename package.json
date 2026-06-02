@@ -52,7 +52,7 @@
     "prettier-eslint": "^16.3.0",
     "require-directory": "^2.1.1",
     "require-from-string": "^2.0.2",
-    "stylelint": "^13.13.1",
+    "stylelint": "^17.0.0",
     "stylelint-config-standard": "^20.0.0",
     "undertaker": "^2.0.0",
     "vinyl-fs": "^4.0.2"
