@@ -36,7 +36,21 @@ Local version: 5.0.1
 
 ## Building a bundle
 
-In order to use the UI in a documentation project
+In order to use the UI in a documentation project, you need to build a bundle.
+The default target of the Gulp buildfile builds a distributable bundle:
+
+```
+[13:20:34] Using gulpfile ~/Ops/hashi@home/platform-engineering-at-home/docs-ui/gulpfile.js
+[13:20:34] Starting 'default'...
+[13:20:34] Starting 'cleanTask'...
+[13:20:34] Finished 'cleanTask' after 66 ms
+[13:20:34] Starting 'buildTask'...
+[13:20:36] Finished 'buildTask' after 2.02 s
+[13:20:36] Starting 'bundlePackTask'...
+Antora option: --ui-bundle-url=<path to>/ui-bundle.zip
+[13:20:37] Finished 'bundlePackTask' after 1.06 s
+[13:20:37] Finished 'default' after 3.15 s
+```
 
 ## Features
 
