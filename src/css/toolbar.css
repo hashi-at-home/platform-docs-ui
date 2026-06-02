@@ -1,8 +1,8 @@
 .toolbar {
   color: var(--toolbar-font-color);
   align-items: center;
-  background-color: var(--toolbar-background);
-  box-shadow: 0 1px 0 var(--toolbar-border-color);
+  background-color: var(--color-background-white);
+  box-shadow: 0 1px 0 var(--color-background-light-grey);
   display: flex;
   font-size: calc(15 / var(--rem-base) * 1rem);
   font-family: "Monaspace Argon";

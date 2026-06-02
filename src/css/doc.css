@@ -157,6 +157,7 @@
 
 .doc blockquote {
   margin: 0;
+  font-family: var(--handwriting-font-family);
 }
 
 .doc .paragraph.lead>p {

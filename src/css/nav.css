@@ -37,7 +37,7 @@
 }
 
 .nav {
-  background: var(--nav-background);
+  background: var(--color-background-white);
   position: relative;
   top: var(--toolbar-height);
   height: var(--nav-height);

@@ -32,7 +32,7 @@ body {
 }
 
 .navbar-brand .navbar-item {
-  color: var(--navbar-font-color);
+  color: var(--color-primary-blue);
 }
 
 .navbar-brand .navbar-item:first-child {

@@ -1,7 +1,6 @@
-= Hardware and Software Requirements
+= Platform Operations
 Author Name
 :idprefix:
-// :source-highlighter: highlight.js
 :idseparator: -
 :!example-caption:
 :!table-caption:

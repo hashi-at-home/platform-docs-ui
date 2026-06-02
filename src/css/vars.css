@@ -18,6 +18,29 @@
   --color-jet-80: #191919;
   --color-black: #000;
 
+  /* EGI Brand Colors */
+
+  /* Headings and highlighted text */
+  --color-primary-blue: #005FAA;
+  /* accents, interaction elements - buttons etc */
+  --color-primary-orange: #EF8200;
+  /* background of widgets and containers */
+  --color-secondary-ice-blue: #F1F8FF;
+  --color-secondary-dark-ice-blue: #669FCC;
+  /* taxonomic labels */
+  --color-secondary-dark-blue: #1E325C;
+
+  /* EGI Background colours */
+
+  /* main background */
+  --color-background-white: #FFFFFF;
+  /* highlighted area background */
+  --color-background-light-gray: #F7F6F7;
+  --color-background-border-gray: #E4E4E4;
+  /* footer background */
+  --color-background-dark-gray: #999999;
+  --color-background-dark-blue: #1E325C;
+
   /* fonts */
   --rem-base: 18;
 
@@ -41,7 +64,7 @@
   --handwriting-font-weight: 400;
 
   /* base */
-  --body-background: var(--color-white);
+  --body-background: var(--color-background-white);
   --panel-background: var(--color-smoke-30);
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-track-color: var(--color-smoke-30);
@@ -49,16 +72,16 @@
   --scrollbar_hover-thumb-color: var(--color-gray-30);
 
   /* navbar */
-  --navbar-background: var(--color-jet-80);
-  --navbar-font-color: var(--color-white);
-  --navbar_hover-background: var(--color-black);
-  --navbar-button-background: var(--color-white);
-  --navbar-button-border-color: var(--panel-border-color);
-  --navbar-button-font-color: var(--body-font-color);
+  --navbar-background: var(--color-background-border-gray);
+  --navbar-font-color: var(--color-primary-blue);
+  --navbar_hover-background: var(--color-secondary-ice-blue);
+  --navbar-button-background: var(--color-primary-orange);
+  --navbar-button-border-color: var(--color-primary-orange);
+  --navbar-button-font-color: var(--color-secondary-ice-blue);
   --navbar-menu-border-color: var(--panel-border-color);
-  --navbar-menu-background: var(--color-white);
-  --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: var(--color-smoke-50);
+  --navbar-menu-background: var(--color-primary-blue);
+  --navbar-menu-font-color: var(--color-secondary-ice-blue);
+  --navbar-menu_hover-background: var(--color-secondary-dark-ice-blue);
 
   /* nav */
   --nav-background: var(--panel-background);
