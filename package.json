@@ -1,5 +1,6 @@
 {
   "name": "@hashiatho.me/docs-ui",
+  "private": true,
   "description": "User Interface module for Hashi@Home Platform Documentation",
   "homepage": "https://github.com/hashi-at-home/platform-docs-ui",
   "license": "MIT",
@@ -15,7 +16,6 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "npm-check-updates": "^22.0.0",
     "@asciidoctor/core": ">=3.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
@@ -44,6 +44,7 @@
     "highlight.js": "^11.11.1",
     "js-yaml": "^4.1.0",
     "merge-stream": "^2.0.0",
+    "npm-check-updates": "^22.0.0",
     "plugin-error": "^2.0.1",
     "postcss": "^8.4.0",
     "postcss-calc": "^10.1.1",
@@ -57,5 +58,65 @@
     "stylelint-config-standard": "^20.0.0",
     "undertaker": "^2.0.0",
     "vinyl-fs": "^4.0.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "repositoryUrl": "https://github.com/hashi-at-home/platform-docs-ui",
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "gulp"
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "build/ui-bundle.zip",
+              "label": "UI Bundle"
+            },
+            {
+              "path": "CHANGELOG.md",
+              "label": "Changelog"
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@semantic-release/exec": "^7.1.0"
   }
 }
