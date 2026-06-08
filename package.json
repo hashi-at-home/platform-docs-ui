@@ -107,14 +107,14 @@
             {
               "path": "build/ui-bundle.zip",
               "label": "UI Bundle",
-              "name": "ui-bundle-${nextRelease.version}"
+              "name": "ui-bundle-${nextRelease.version}.zip"
             }
           ]
         }
       ]
     ]
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "@semantic-release/exec": "^7.1.0"
   }
