@@ -7,6 +7,13 @@ import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import postcss from 'postcss'
 
+/*
+  This is a postcss plugin to extract devicon content values from the
+  bundled css and create css rules based on them.
+  It is necessary since Antora has a few built-in rules for the icon macro
+  which we need to respect in order to use icon:devicon-xyz[]
+*/
+
 const plugin = () => {
   return {
     postcssPlugin: 'postcss-devicon-mapper',
@@ -14,7 +21,7 @@ const plugin = () => {
       // step 1 - read the devicon codepoints from codepoints.lock.json
       // This is the authoritative source for the actual font codepoints
       const __dirname = dirname(fileURLToPath(import.meta.url))
-      const codepointsPath = path.join(__dirname, 'node_modules/devicons/codepoin ts.lock.json')
+      const codepointsPath = path.join(__dirname, 'node_modules/devicons/codepoints.lock.json')
 
       let codepoints
       try {
