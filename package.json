@@ -1,7 +1,7 @@
 {
   "name": "@hashiatho.me/docs-ui",
   "private": true,
-  "description": "User Interface module for Hashi@Home Platform Documentation",
+  "description": "User Interface module for Platform Documentation",
   "homepage": "https://github.com/hashi-at-home/platform-docs-ui",
   "license": "MIT",
   "repository": {
@@ -95,6 +95,7 @@
         {
           "assets": [
             "package.json",
+            "package-lock.json",
             "CHANGELOG.md"
           ]
         }
