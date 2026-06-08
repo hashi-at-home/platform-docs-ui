@@ -1,0 +1,16 @@
+/*/* Devicons 2.17.0 icon content mapping for fa-devicon-* classes */
+/* Maps fa-devicon-* classes (for Antora prefix requirement) to devicon 2.17.0 font glyphs */
+/* Extracted from official devicon.min.css v2.17.0 */
+
+/* Base styling for fa-devicon- prefixed classes */
+/*.icon i[class*="fa-devicon-"] {
+  font-family: 'devicons';
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: never;
+}*/

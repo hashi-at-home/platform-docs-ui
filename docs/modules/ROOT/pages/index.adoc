@@ -1,0 +1,12 @@
+= Platform Docs User Interace
+
+This documents the user interface.
+
+The user interface is a modification of the standard Antora UI, with updates for modernisation and extra features.
+
+
+== Features
+
+* Devicons
+* FontAwesome
+* EGI colours
