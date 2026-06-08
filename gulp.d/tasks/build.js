@@ -4,6 +4,8 @@ import { Transform } from 'stream'
 import path from 'path'
 import fs from 'fs-extra'
 import browserify from 'browserify'
+import GulpPostCss from 'gulp-postcss'
+import postcssConfig from '../../postcss.config.js'
 
 const map = (transform) => new Transform({ objectMode: true, transform })
 
@@ -30,8 +32,31 @@ export default (src, dest) => async () => {
     // Concatenate and write CSS to css/ subdirectory
     new Promise((resolve, reject) => {
       vfs
-        .src('css/**/*.css', opts)
+        .src([
+          'css/typeface-roboto.css',
+          'css/typeface-roboto-mono.css',
+          'css/vars.css',
+          'css/base.css',
+          'css/body.css',
+          'css/nav.css',
+          'css/main.css',
+          'css/toolbar.css',
+          'css/breadcrumb.css',
+          'css/page-versions.css',
+          'css/toc.css',
+          'css/doc.css',
+          'css/pagination.css',
+          'css/header.css',
+          'css/footer.css',
+          'css/highlight.css',
+          'css/print.css',
+          'css/fontawesome.css',
+          'css/devicons.css',
+          'css/devicons-mapping.css',
+          'css/typeface-monaspace-radon.css',
+        ], opts)
         .pipe(gulpConcat('css/site.css'))
+        .pipe(GulpPostCss(postcssConfig.plugins))
         .pipe(
           map(async (file, enc, next) => {
             try {
@@ -128,6 +153,8 @@ export default (src, dest) => async () => {
     // Copy fonts from node_modules
     new Promise((resolve, reject) => {
       const fontGlobs = [
+        'node_modules/devicons/dist/devicons.woff2',
+        'node_modules/devicons/dist/devicons.ttf',
         'node_modules/@fontsource/dm-sans/files/**/*.woff*',
         'node_modules/@fontsource/monaspace-argon/files/**/*.woff*',
         'node_modules/@fontsource/monaspace-krypton/files/**/*.woff*',
