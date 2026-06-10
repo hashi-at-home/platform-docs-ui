@@ -1,3 +1,9 @@
+## <small>1.1.1 (2026-06-10)</small>
+
+* fix: set version on docs ([6fadd65](https://github.com/hashi-at-home/platform-docs-ui/commit/6fadd65))
+* chore: add version to antora.yml ([4c2959c](https://github.com/hashi-at-home/platform-docs-ui/commit/4c2959c))
+* chore: change package name and add lockfile to release ([70a2e40](https://github.com/hashi-at-home/platform-docs-ui/commit/70a2e40))
+
 ## 1.1.0 (2026-06-08)
 
 * chore: add devicons package ([d7783b0](https://github.com/hashi-at-home/platform-docs-ui/commit/d7783b0))
