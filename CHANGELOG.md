@@ -1,3 +1,7 @@
+## <small>1.1.2 (2026-06-10)</small>
+
+* fix(header): change download to login ([c33055d](https://github.com/hashi-at-home/platform-docs-ui/commit/c33055d))
+
 ## <small>1.1.1 (2026-06-10)</small>
 
 * fix: set version on docs ([6fadd65](https://github.com/hashi-at-home/platform-docs-ui/commit/6fadd65))
