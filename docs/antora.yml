@@ -1,5 +1,5 @@
 name: platform-docs-ui
-version: v1.1.0
+version: true
 title: Platform Docs UI
 nav:
   - modules/ROOT/nav.adoc
